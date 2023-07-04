@@ -19,5 +19,4 @@ RUN apt-get update && apt-get install -y \
     procps \
     isc-dhcp-client
 
-# 起動時に終了しないようにsleepをループする
-CMD ["bash", "-c", "while true; do sleep 1; done"]
+CMD ["bash"]
