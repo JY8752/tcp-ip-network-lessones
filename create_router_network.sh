@@ -29,4 +29,14 @@ ip netns exec ns1 ip address add 192.0.2.1/24 dev ns1-veth0
 ip netns exec router ip address add 192.0.2.254/24 dev gw-veth0
 
 ip netns exec ns2 ip address add 198.51.100.1/24 dev ns2-veth0
-ip netns exec router address add 198.51.100.254/24 dev gw-veth1
+ip netns exec router ip address add 198.51.100.254/24 dev gw-veth1
+
+# ルーティング設定
+ip netns exec ns1 ip route add default via 192.0.2.254
+ip netns exec ns2 ip route add default via 198.51.100.254
+
+# routerのipv4フォワードを有効化
+# ip netns exec router sysctl net.ipv4.ip_forward=1
+
+# ns1からns2にping
+ip netns exec ns1 ping -c 3 198.51.100.1
