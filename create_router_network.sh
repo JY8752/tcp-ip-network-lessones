@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # namespaceを一旦削除
-# ip netns --all delete
+# ip --all netns delete
 
 # namespaceを作成
 ip netns add ns1
