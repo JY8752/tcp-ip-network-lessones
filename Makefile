@@ -8,9 +8,11 @@ run:
 		-v `pwd`/bridge.sh:/tmp/bridge.sh \
 		-v `pwd`/ethernet.sh:/tmp/ethernet.sh \
 		-v `pwd`/dhcp.sh:/tmp/dhcp.sh \
+		-v `pwd`/nat.sh:/tmp/nat.sh \
 		myubuntu
 	@docker exec myubuntu chmod +x /tmp/create_router_network.sh
 	@docker exec myubuntu chmod +x /tmp/create_router_network2.sh
 	@docker exec myubuntu chmod +x /tmp/ethernet.sh
 	@docker exec myubuntu chmod +x /tmp/bridge.sh
 	@docker exec myubuntu chmod +x /tmp/dhcp.sh
+	@docker exec myubuntu chmod +x /tmp/nat.sh
