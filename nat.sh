@@ -43,3 +43,11 @@ ip netns exec router iptables \
     -s 192.0.2.0/24 \
     -o gw-veth1 \
     -j MASQUERADE
+
+ip netns exec router iptables \
+    -A POSTROUTING \
+    -p tcp \
+    --dport 54321 \
+    -d 203.0.113.254 \
+    -j DNAT \
+    --to-destination 192.0.2.1
